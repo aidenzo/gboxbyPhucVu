@@ -177,7 +177,10 @@ header {
         height: calc(var(--heightHeader) / 2);
         position: fixed;
         width: 100%;
+        max-width: 100%;
         //width: $container-max-width;
+        left: 50%;
+        transform: translateX(-50%);
         z-index: 999;
         top: 0;
         background-color: $light-grey-cl;
