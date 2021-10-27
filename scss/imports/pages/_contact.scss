@@ -1,0 +1,64 @@
+.oncontactpage {
+    width: 100%;
+    .contact {
+        height: 600px;
+        background-image: url('../img/bg_cafe.jpg');
+        background-position: center;
+        background-size: cover;
+        position: relative;
+        @include transition($t);
+        @include sm {
+            background-position: -600px 0px;
+            .contact__logo {
+                display: none;
+            }
+        }
+        &:before {
+            content: '';
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: rgba($color: $light-grey-cl, $alpha: 0.4);
+            @include transition($t);
+            z-index: 10;
+        }
+        .container {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 0;
+        }
+        &__content {
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            column-gap: 60px;
+            row-gap: 20px;
+            @include text(14px,
+            regular,
+            2,
+            $white-cl,
+            uppercase);
+            &-address {
+                text-align: right;
+            }
+            &-tel {
+                grid-column: 2/3;
+                grid-row: 2/3;
+            }
+            @include sm {
+                display: flex;
+                flex-direction: column-reverse;
+                text-align: center;
+                .contact__content-address {
+                    text-align: center;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,148 @@
+ // css footer
+ footer {
+     width: 100%;
+     height: 100%;
+     .hidden {
+         display: none;
+     }
+     .footer_layout {
+         width: 100%;
+         &:first-child {
+             background-color: $white-cl;
+             height: calc(var(--heightFooter) - 500px);
+             .container {
+                 height: 100%;
+             }
+             .contact__list {
+                 padding: 70px 15px 0 15px;
+                 display: grid;
+                 width: 100%;
+                 height: 100%;
+                 grid-template-columns: repeat(2, 1fr);
+                 column-gap: 10px;
+                 @include text(15px, regular, 2, $black-cl, uppercase);
+                 &-left {
+                     .telephone {
+                         margin-top: 30px;
+                         span {
+                             margin-left: 50px;
+                         }
+                     }
+                 }
+                 &-right {
+                     width: 200px;
+                 }
+                 .contact__address {
+                     display: none;
+                 }
+             }
+             @include sm {
+                 .contact__list {
+                     padding: 30px 30px;
+                     @include text(13px, regular, 2, $black-cl, uppercase);
+                     display: flex;
+                     justify-content: space-around;
+                     flex-direction: column;
+                     align-items: center;
+                     align-content: center;
+                     text-align: center;
+                     &-right {
+                         .contact__desc {
+                             display: none;
+                         }
+                         .contact__address {
+                             display: block;
+                         }
+                     }
+                 }
+             }
+         }
+         &:last-child {
+             background-color: $yellow-cl;
+             height: calc(var(--heightFooter) - 200px);
+             width: 100%;
+             .container {
+                 height: 100%;
+                 width: 100%;
+                 position: relative;
+             }
+             .footer_top {
+                 padding: 15px;
+                 position: relative;
+                 display: grid;
+                 column-gap: 10px;
+                 grid-template-columns: repeat(2, 1fr);
+                 &-left {
+                     width: 250px;
+                     @include text(15px, regular, 2, $black-cl, uppercase);
+                 }
+                 &-right {
+                     .footer-form {
+                         display: grid;
+                         grid-template-columns: repeat(2, 1fr);
+                         row-gap: 30px;
+                         column-gap: 20px;
+                         width: fit-content;
+                         position: relative;
+                         .form-content {
+                             position: relative;
+                             height: 40px;
+                             width: fit-content;
+                             @include text(15px, regular, 2, $black-cl, normal);
+                             input {
+                                 width: 200px;
+                                 outline: 0;
+                                 background: $yellow-cl;
+                                 padding: 5px;
+                                 border: none;
+                                 border-bottom: 1px solid #171717;
+                                 @include text(15px, regular, 2, $black-cl, normal);
+                                 &:focus {
+                                     border: none;
+                                 }
+                             }
+                             /*  &::after {
+                                 content: '';
+                                 background-color: $black-cl;
+                                 height: 1px;
+                                 width: 100%;
+                                 display: block;
+                                 position: absolute;
+                                 bottom: -5px;
+                                 left: 50%;
+                                 @include transform(translateX(-50%));
+                             } */
+                         }
+                     }
+                 }
+                 @include sm {
+                     display: none;
+                 }
+             }
+             .footer_bottom {
+                 width: 100%;
+                 .btnbtt {
+                     margin-top: 80px;
+                     width: 100%;
+                     text-align: center;
+                     position: absolute;
+                     left: 50%;
+                     @include transform(translateX(-50%));
+                     @include text(10px, regular, 2, $black-cl, uppercase);
+                     text-decoration: none;
+                     @include sm {
+                         margin-top: initial;
+                         position: absolute;
+                         top: 50%;
+                         left: 50%;
+                         @include transform(translate(-50%, -50%));
+                         @include text(13px, regular, 2, $black-cl, uppercase);
+                     }
+                 }
+             }
+             @include sm {
+                 height: calc(var(--heightFooter) - 500px);
+             }
+         }
+     }
+ }

@@ -1,0 +1,55 @@
+// css components
+.projecttb {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-top: 25px;
+    .title {
+        @include text(15px, bold, 32px, $black-cl, uppercase);
+        text-align: center;
+        text-decoration: none;
+        &::after {
+            content: '';
+            background-color: $yellow-cl;
+            height: 3px;
+            width: 15px;
+            display: block;
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            @include transform(translateX(-50%));
+        }
+    }
+    .desc_brand {
+        margin-top: 8px;
+        @include text(12px, bold, 20px, $black-cl, normal);
+        text-align: center;
+        span {
+            @include text(12px, bold, 20px, $black-cl, normal);
+            text-align: center;
+        }
+    }
+    .desc_other {
+        @include text(12px, bold, 20px, $black-cl, normal);
+        text-align: center;
+        span {
+            @include text(12px, bold, 20px, $black-cl, normal);
+            font-style: italic;
+            text-align: center;
+        }
+    }
+}
+
+//handle Fullscreen carousel 
+.flickity-enabled {
+    &.is-fullscreen {
+        height: 100vh !important;
+        width: 100vw !important;
+        background-color: rgba($black-cl, 0.4);
+        padding: 10% 10%;
+    }
+}
+
+.flickity-page-dots {
+    display: none;
+}

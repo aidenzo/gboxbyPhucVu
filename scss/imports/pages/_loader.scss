@@ -1,0 +1,46 @@
+.onloadpage {
+    width: 100%;
+    height: 100vh;
+    display: none;
+    @include transition($t);
+}
+
+.display {
+    display: block;
+}
+
+.loaderpage {
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    background-color: $light-grey-cl;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .loader {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        animation: loader 5s ease;
+        @include transition($t);
+    }
+}
+
+@keyframes loader {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(180deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    75% {
+        transform: rotate(360deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

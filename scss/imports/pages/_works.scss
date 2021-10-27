@@ -1,0 +1,65 @@
+.onworkpage {
+    padding-top: 50px;
+    height: 100%;
+    .container {
+        position: relative;
+        height: 100%;
+        .btn_onworkpage {
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            height: fit-content;
+            .btn_more {
+                &::after {
+                    display: none;
+                }
+            }
+            .booking {
+                display: flex;
+                flex-direction: row;
+                position: absolute;
+                right: 0;
+                top: 0;
+                text-align: center;
+                .booking__text {
+                    width: 120px;
+                    text-align: right;
+                    margin-right: 10px;
+                    @include text(15px, regular, 1, $black-cl, normal);
+                }
+            }
+            &::after {
+                content: '';
+                background-color: black;
+                height: 1px;
+                width: 100%;
+                display: block;
+                position: absolute;
+                bottom: -80px;
+                left: 0;
+            }
+            @include sm {
+                display: flex;
+                flex-direction: column-reverse;
+                align-items: center;
+                height: fit-content;
+                .booking {
+                    flex-direction: column;
+                    position: initial;
+                    align-items: center;
+                    margin: 30px 0;
+                    .booking__text {
+                        text-align: center;
+                        padding: 5px;
+                        margin-right: initial;
+                        margin-bottom: 10px;
+                    }
+                }
+                &::after {
+                    bottom: -30px;
+                }
+            }
+        }
+    }
+}

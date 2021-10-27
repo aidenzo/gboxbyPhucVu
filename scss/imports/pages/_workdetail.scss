@@ -1,0 +1,95 @@
+    .onworkdetailpage {
+        padding-top: 50px;
+        height: 100%;
+        .workdetails {
+            height: 100%;
+            width: 100%;
+            .container {
+                width: 100%;
+                height: 100%;
+                position: relative;
+                margin-bottom: 80px;
+                &::after {
+                    content: '';
+                    background-color: black;
+                    height: 1px;
+                    width: 100%;
+                    display: block;
+                    position: absolute;
+                    bottom: -80px;
+                    left: 0;
+                }
+            }
+            &__title {
+                display: flex;
+                justify-content: space-between;
+                height: 50px;
+                &-name {
+                    @include text(16px, regular, 22px, $black-cl, uppercase);
+                    letter-spacing: 200;
+                }
+                &-btn {
+                    @include text(14px, regular, 32px, $black-cl, normal);
+                    text-decoration: none;
+                    i {
+                        margin-left: 20px;
+                        img {
+                            @include transform(rotate(90deg));
+                        }
+                    }
+                }
+            }
+            &__img {
+                height: fit-content;
+            }
+            &__content {
+                margin-top: 30px;
+                display: grid;
+                grid-template-columns: 2fr 1fr 1fr;
+                h2 {
+                    @include text(16px, regular, 22px, $black-cl, uppercase);
+                    margin-bottom: 10px;
+                }
+                p {
+                    @include text(14px, regular, 25px, $black-cl, normal);
+                }
+                &--desc {
+                    width: 80%;
+                }
+                &--client {
+                    p {
+                        font-style: italic;
+                    }
+                }
+                &--about {
+                    p {
+                        text-transform: uppercase;
+                    }
+                    span {
+                        text-transform: capitalize;
+                        font-style: italic;
+                    }
+                }
+                &--clientonmb {
+                    p {
+                        font-style: italic;
+                    }
+                    display: none;
+                }
+                @include sm {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    row-gap: 30px;
+                    .workdetails__content--clientonmb {
+                        display: block;
+                    }
+                    .workdetails__content--client {
+                        display: none;
+                    }
+                    .workdetails__content--desc {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }

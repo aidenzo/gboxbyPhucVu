@@ -1,0 +1,235 @@
+// css header
+header {
+    width: 100%;
+    .outer {
+        height: calc(var(--heightHeader) / 2);
+        &:first-child {
+            background-color: $light-grey-cl;
+            .container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+                position: relative;
+                @include md {
+                    justify-content: space-between;
+                }
+            }
+            .right {
+                cursor: pointer;
+                position: absolute;
+                right: 0;
+                margin: 15px;
+                @include md {
+                    right: initial;
+                    position: initial;
+                }
+            }
+            .btnmenu {
+                display: none;
+                width: 40px;
+                height: 22px;
+                position: relative;
+                z-index: 300;
+                cursor: pointer;
+                span {
+                    width: 100%;
+                    height: 2px;
+                    display: flex;
+                    background: $yellow-cl;
+                    position: absolute;
+                    top: 50%;
+                    @include transform(transform(-50%));
+                    @include transition(0.3s);
+                    justify-content: center;
+                    align-items: center;
+                }
+                &:before,
+                &::after {
+                    content: '';
+                    width: 100%;
+                    height: 2px;
+                    display: block;
+                    background: $yellow-cl;
+                    @include transform(rotate(0deg)translateY(0px));
+                    @include transition(transform 0.3s);
+                }
+                &:after {
+                    position: absolute;
+                    bottom: 0;
+                }
+                &.clicked {
+                    cursor: pointer;
+                    &:before {
+                        background: $black-cl;
+                        @include transform(rotate(45deg) translate(6px, 8px));
+                        @include transition(transform 0.3s);
+                    }
+                    span {
+                        opacity: 0;
+                        @include transition(0.3s);
+                    }
+                    &:after {
+                        background: $black-cl;
+                        @include transform(rotate(-45deg) translate(6px, -8px));
+                        @include transition(transform 0.3s);
+                    }
+                }
+                @include md {
+                    display: block;
+                }
+            }
+            .hidden {
+                display: none;
+            }
+        }
+        &:nth-child(2) {
+            background-color: $white-cl;
+            .container {
+                height: 100%;
+            }
+            .menu {
+                padding-top: 20px;
+                height: 100%;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-direction: row;
+                align-content: center;
+                position: relative;
+                &::after {
+                    content: '';
+                    background-color: black;
+                    height: 1px;
+                    width: 100%;
+                    display: block;
+                    position: absolute;
+                    bottom: -1px;
+                    left: 0;
+                }
+            }
+            .menu-left,
+            .menu-right {
+                height: 100%;
+            }
+            .menu-mid {
+                height: 100%;
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                column-gap: 50px;
+            }
+            a {
+                height: 100%;
+                @include text(15px, bold, 32px, $black-cl, uppercase);
+                text-decoration: none;
+                justify-content: center;
+                display: flex;
+                align-items: center;
+                justify-content: center
+            }
+            @include md {
+                display: none;
+            }
+        }
+    }
+    .disshow {
+        display: none;
+    }
+    .nav {
+        width: 100vw;
+        height: 100%;
+        max-height: 100vh;
+        background: $yellow-cl;
+        position: fixed;
+        top: 0;
+        left: 0;
+        @include transform(initial);
+        z-index: 201;
+        opacity: 0;
+        pointer-events: none;
+        @include transition(opacity 0.3s);
+        ul {
+            flex-direction: column;
+            @include mid();
+            li {
+                margin: 30px auto;
+                a {
+                    padding: 20px;
+                    text-align: center;
+                    text-decoration: none;
+                    @include text(15px, bold, 1, $black-cl, uppercase);
+                    @include transition($t);
+                    &:hover {
+                        color: $light-grey-cl;
+                        @include transition($t);
+                    }
+                }
+            }
+        }
+        &.clicked {
+            opacity: 1;
+            pointer-events: auto;
+            @include transition(opacity 0.3s);
+        }
+    }
+    .outerhide {
+        height: calc(var(--heightHeader) / 2);
+        position: fixed;
+        width: 100%;
+        //width: $container-max-width;
+        z-index: 999;
+        top: 0;
+        background-color: $light-grey-cl;
+        .container {
+            height: 100%;
+            width: 100%;
+        }
+        .menu {
+            padding-top: 20px;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: row;
+            align-content: center;
+            position: relative;
+            &::after {
+                content: '';
+                background-color: black;
+                height: 1px;
+                width: 100%;
+                display: block;
+                position: absolute;
+                bottom: -1px;
+                left: 0;
+            }
+        }
+        .menu-left,
+        .menu-right {
+            height: 100%;
+        }
+        .menu-mid {
+            height: 100%;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            column-gap: 50px;
+        }
+        a {
+            height: 100%;
+            @include text(15px, bold, 32px, $white-cl, uppercase);
+            text-decoration: none;
+            justify-content: center;
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+        .onthispage {
+            @include text(15px, bold, 32px, $yellow-cl, uppercase);
+        }
+        @include md {
+            display: none;
+        }
+    }
+}

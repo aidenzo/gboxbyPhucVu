@@ -1,0 +1,51 @@
+// css button, title, icon, elements...
+img {
+    max-width: 100%;
+}
+
+.btnsend {
+    height: 20px;
+    width: 50px;
+    background-color: $black-cl;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    .btnsend-content {
+        height: 100%;
+        width: 100%;
+        position: relative;
+        a {
+            text-decoration: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            @include text(12px, bold, 2, $white-cl, uppercase);
+            @include transform(translate(-50%, -50%));
+        }
+    }
+}
+
+.btn_more {
+    text-align: center;
+    a {
+        @include text(12px, bold, 2, $black-cl, uppercase);
+        text-decoration: none;
+    }
+}
+
+.btn_book {
+    height: 100px;
+    width: 100px;
+    background: $light-grey-cl;
+    border-radius: 15px;
+    position: relative;
+    cursor: pointer;
+    a {
+        @include text(24px, bold, 1, $yellow-cl, uppercase);
+        text-decoration: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        @include transform(translate(-50%, -50%));
+    }
+}

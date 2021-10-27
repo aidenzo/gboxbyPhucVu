@@ -1,0 +1,306 @@
+.onsrentalpage {
+    .rental {
+        height: 100%;
+        width: 100%;
+        .container {
+            height: 100%;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 260px 520px;
+            column-gap: 35px;
+            margin-bottom: 80px;
+            position: relative;
+            &::after {
+                content: '';
+                background-color: black;
+                height: 1px;
+                width: 100%;
+                display: block;
+                position: absolute;
+                bottom: -80px;
+                left: 0;
+            }
+            @include md {
+                display: flex;
+                flex-direction: column;
+                column-gap: initial;
+            }
+        }
+        .rental__left {
+            height: 640px;
+            background-color: $light-grey-cl;
+            padding: 75px 30px 0 15px;
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: column;
+            @include md {
+                height: 160px;
+                flex-direction: row;
+                align-items: center;
+                justify-content: flex-start;
+                padding: initial;
+                padding: initial;
+                background-color: $white-cl;
+                .rental__left-name {
+                    margin: initial;
+                    margin-top: 20px;
+                    margin-left: 20px;
+                    h2 {
+                        @include text(34px, extrabold, 1, $black-cl, normal);
+                    }
+                    h3 {
+                        @include text(12px, regular, 30px, $black-cl, uppercase);
+                        margin: 20px 0 0 0;
+                    }
+                    p,
+                    span {
+                        @include text(12px, regular, 20px, $black-cl, initial);
+                    }
+                }
+            }
+            &-no {
+                height: 120px;
+                width: 120px;
+                text-align: center;
+                background-color: $yellow-cl;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                h2 {
+                    @include text(14px, bold, 2, $black-cl, uppercase);
+                }
+                span {
+                    @include text(50px, extrabold, 1, $black-cl, normal);
+                }
+            }
+            &-name {
+                display: flex;
+                flex-direction: column;
+                align-self: flex-start;
+                margin: 30px 0;
+                h2 {
+                    @include text(34px, extrabold, 1, $white-cl, normal);
+                }
+                h3 {
+                    @include text(12px, regular, 30px, $white-cl, uppercase);
+                    margin: 20px 0 0 0;
+                }
+                p,
+                span {
+                    @include text(12px, regular, 20px, $white-cl, initial);
+                }
+            }
+        }
+        .rental__right {
+            padding-top: 70px;
+            .company__detail {
+                &-title {
+                    margin-bottom: 40px;
+                    @include text(30px, extrabold, 1, $black-cl, normal);
+                }
+                &-form {
+                    display: grid;
+                    grid-template-columns: 230px 230px;
+                    column-gap: 60px;
+                    row-gap: 30px;
+                    .form-text {
+                        p {
+                            @include text(14px, regular, 1, $black-cl, normal);
+                        }
+                        input {
+                            @include text(14px, regular, 1.5, $black-cl, normal);
+                            height: 30px;
+                            width: 100%;
+                            outline: none;
+                            border: 0;
+                            background-color: $white-cl;
+                            border-bottom: 1px solid $black-cl;
+                            @include text(14px, regular, 1, $black-cl, normal);
+                        }
+                        textarea {
+                            @include text(14px, regular, 1.5, $black-cl, normal);
+                            padding: 10px;
+                            margin-top: 30px;
+                            resize: none;
+                            background-color: $white-cl;
+                            width: 100%;
+                            height: 90px;
+                        }
+                    }
+                }
+            }
+            .booking__detail {
+                margin-bottom: 70px;
+                &-title {
+                    margin: 40px 0;
+                    @include text(30px, extrabold, 1, $black-cl, normal);
+                }
+                &-choosestudio {
+                    margin-bottom: 35px;
+                    h4 {
+                        margin-bottom: 20px;
+                        @include text(14px, regular, 1, $black-cl, normal);
+                    }
+                    .studiolist {
+                        width: 220px;
+                        display: flex;
+                        justify-content: space-between;
+                        &-item {
+                            cursor: pointer;
+                            border: 1px solid $black-cl;
+                            height: 40px;
+                            width: 40px;
+                            padding: 10px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            background-color: $black-cl;
+                            p {
+                                @include text(26px, bold, 1, $lighter-grey-cl, normal);
+                            }
+                            &:hover {
+                                background-color: $yellow-cl;
+                                p {
+                                    @include text(26px, bold, 1, $black-cl, normal);
+                                }
+                            }
+                        }
+                        .active {
+                            background-color: $yellow-cl;
+                            p {
+                                @include text(26px, bold, 1, $black-cl, normal);
+                            }
+                        }
+                    }
+                }
+                &-requirement {
+                    display: grid;
+                    grid-template-columns: 230px 230px;
+                    column-gap: 60px;
+                    p {
+                        @include text(14px, regular, 1, $black-cl, normal);
+                    }
+                    textarea {
+                        @include text(14px, regular, 1.5, $black-cl, normal);
+                        padding: 10px;
+                        margin-top: 30px;
+                        resize: none;
+                        background-color: $white-cl;
+                        width: 100%;
+                        height: 90px;
+                    }
+                    span {
+                        @include text(14px, regular, 1, $black-cl, normal);
+                        font-style: italic;
+                        width: 100%;
+                    }
+                }
+                &-duration {
+                    margin-top: 10px;
+                    p {
+                        margin-bottom: 20px;
+                        @include text(14px, regular, 1, $black-cl, normal);
+                    }
+                    .duration-text {
+                        display: grid;
+                        grid-template-columns: 230px 230px;
+                        width: fit-content;
+                        column-gap: 60px;
+                        position: relative;
+                        input {
+                            height: 40px;
+                            width: 100%;
+                            background-color: $white-cl;
+                            border: 1px solid $black-cl;
+                            padding: 10px;
+                            @include text(14px, regular, 1, $black-cl, normal);
+                        }
+                        .down,
+                        .right {
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            @include transform(translate(-50%, -50%));
+                        }
+                        .down {
+                            display: none;
+                        }
+                    }
+                }
+                &-other {
+                    margin-top: 35px;
+                    .other-text {
+                        margin-bottom: 20px;
+                        p {
+                            margin-bottom: 20px;
+                            @include text(14px, regular, 1, $black-cl, normal);
+                        }
+                        input {
+                            width: 100%;
+                            height: 40px;
+                            background-color: $white-cl;
+                            border: 1px solid $black-cl;
+                        }
+                    }
+                }
+            }
+            @include md {
+                padding-top: 30px;
+                .company__detail-form {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                }
+                .booking__detail {
+                    &-choosestudio {
+                        .studiolist {
+                            width: 100%;
+                            justify-content: flex-start;
+                            &-item {
+                                margin-right: 20px;
+                            }
+                        }
+                    }
+                    &-requirement {
+                        display: grid;
+                        grid-template-columns: 100%;
+                    }
+                    &-duration {
+                        margin-top: 30px;
+                        .duration-text {
+                            width: 100%;
+                            display: grid;
+                            grid-template-columns: 100%;
+                            row-gap: 50px;
+                            input {
+                                width: 100%;
+                            }
+                            .right {
+                                display: none;
+                            }
+                            .down {
+                                display: block;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .rental__rightbot {
+            .booking {
+                display: flex;
+                flex-direction: row;
+                .btn_book {
+                    padding: 10px;
+                }
+                &__text {
+                    margin-left: 20px;
+                    width: 40%;
+                    @include text(14px, regular, 1.5, $black-cl, normal);
+                    span {
+                        @include text(14px, bold, 1, $black-cl, normal);
+                    }
+                }
+            }
+        }
+    }
+}

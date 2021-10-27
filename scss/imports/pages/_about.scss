@@ -1,0 +1,43 @@
+.onaboutpage {
+    .about {
+        height: 100%;
+        width: 100%;
+        background-color: $dark-grey-cl;
+        .container {
+            padding: 80px 0;
+            width: 100%;
+            height: 100%;
+            padding-left: 25px;
+        }
+        &__title {
+            @include text(38px, bold, 1.5, $yellow-cl, uppercase);
+            letter-spacing: 20px;
+            width: 30%;
+        }
+        &__content {
+            margin: 40px 0;
+            @include text(18px, regular, 2, $white-cl, normal);
+            @include sm {
+                padding: 10px;
+            }
+        }
+        .booking {
+            display: flex;
+            flex-direction: row;
+            .btn_book {
+                background-color: $yellow-cl;
+                a {
+                    color: $black-cl;
+                }
+            }
+            .booking__text {
+                margin-left: 20px;
+                color: $white-cl;
+                width: 10%;
+                @include sm {
+                    width: 50%;
+                }
+            }
+        }
+    }
+}

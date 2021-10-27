@@ -1,0 +1,165 @@
+iframe {
+    display: none;
+}
+
+//CSSWelcome
+.welcome {
+    margin: 50px 0;
+    width: 100%;
+    position: relative;
+    .container {
+        height: 100%;
+        position: relative;
+        &::after {
+            content: '';
+            background-color: black;
+            height: 1px;
+            width: 30%;
+            display: block;
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            @include transform(translateX(-50%));
+        }
+    }
+    .welcometext {
+        width: 100%;
+        h3 {
+            display: block;
+            text-orientation: upright;
+            text-align: center;
+            @include text(18px, regular, 1.5, $black-cl, uppercase);
+            letter-spacing: 2px;
+            width: 100%;
+            span {
+                background-color: $yellow-cl;
+                @include text(24px, bold, 2.5, $black-cl, uppercase);
+                letter-spacing: 5px;
+            }
+        }
+    }
+    .welcomedesc {
+        width: 100%;
+        padding: 10px 50px;
+        p {
+            @include text(12px, regular, 1.75, $black-cl, normal);
+            text-align: center;
+        }
+        @include sm {
+            display: none;
+        }
+    }
+    @include md {
+        margin: 50px 0;
+        &::after {
+            bottom: -30px;
+        }
+    }
+}
+
+//CSSWork
+.works {
+    height: fit-content;
+    width: 100%;
+    padding: 10px 0;
+    margin-bottom: 70px;
+    /*  position: relative; */
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    .container {
+        height: 100%;
+    }
+    &__tabs {
+        /*    position: absolute; */
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        /*   left: 50%;
+        @include transform(translateX(-50%)); */
+        .active {
+            color: $black-cl;
+        }
+        &-item {
+            padding: 0 20px;
+            @include text(15px, bold, 32px, $lighter-grey-cl, uppercase);
+            text-decoration: none;
+        }
+        @include sm {
+            padding: initial;
+        }
+    }
+    &__list {
+        display: none;
+        position: relative;
+        margin-top: 15px;
+        width: 100%;
+        grid-template-columns: repeat(3, 1fr);
+        row-gap: 60px;
+        column-gap: 10px;
+        margin-bottom: 40px;
+        &-item {
+            position: relative;
+            width: 100%;
+            .works__img {
+                width: 100%;
+                height: 0;
+                overflow: hidden;
+                position: relative;
+                cursor: pointer;
+                padding-bottom: 70%;
+                img {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    min-width: 100%;
+                    min-height: 100%;
+                    object-fit: cover;
+                    @include transform(translate(-50%, -50%) scale(1));
+                    @include transition($t);
+                }
+                &:hover {
+                    img {
+                        @include transform(translate(-50%, -50%) scale(1.05));
+                        @include transition($t);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.btn_more {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    &::after {
+        content: '';
+        background-color: black;
+        height: 1px;
+        width: 100%;
+        display: block;
+        position: absolute;
+        bottom: -80px;
+        left: 0;
+    }
+}
+
+.active {
+    display: grid;
+    @include md {
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 30px;
+    }
+    @include sm {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+}
+
+//CSSContact

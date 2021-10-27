@@ -1,0 +1,151 @@
+.onstudiospage {
+    padding: 50px;
+    height: 100%;
+    @include sm {
+        padding-left: initial;
+        padding-right: initial;
+    }
+    .studios {
+        margin-bottom: 50px;
+    }
+    .container {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 20px;
+        row-gap: 40px;
+        &::after {
+            content: '';
+            background-color: black;
+            height: 1px;
+            width: 100%;
+            display: block;
+            position: absolute;
+            bottom: -80px;
+            left: 0;
+        }
+        @include sm {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+    .studios__item {
+        width: 100%;
+        &--img {
+            width: 100%;
+            height: 0;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            padding-bottom: 70%;
+            @include transition($t);
+            img {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                min-width: 100%;
+                min-height: 100%;
+                object-fit: cover;
+                @include transform(translate(-50%, -50%) scale(1));
+                @include transition($t);
+            }
+            &:hover {
+                img {
+                    @include transform(translate(-50%, -50%) scale(1.05));
+                    @include transition($t);
+                }
+            }
+            &:before {
+                content: '';
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                background: rgba($color: #000000, $alpha: 0.4);
+                @include transition($t);
+                z-index: 10;
+            }
+        }
+        &--txt {
+            height: 120px;
+            display: grid;
+            grid-template-columns: 0.5fr 1fr 0.5fr;
+            .studio__no {
+                background-color: $yellow-cl;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-self: center;
+                justify-content: center;
+                text-align: center;
+                h2 {
+                    @include text(14px, regular, 2, $black-cl, uppercase);
+                }
+                span {
+                    @include text(50px, extrabold, 1, $black-cl, uppercase);
+                }
+            }
+            .studios__content {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-self: center;
+                justify-content: center;
+                padding-left: 50px;
+                h2 {
+                    @include text(12px, bold, 30px, $black-cl, uppercase);
+                }
+                p,
+                span {
+                    @include text(12px, regular, 20px, $black-cl, uppercase);
+                }
+            }
+            .btn_more {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-self: center;
+                justify-content: center;
+                a {
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    align-self: center;
+                    justify-content: center;
+                }
+                .yellow {
+                    display: none;
+                }
+            }
+        }
+        &:hover {
+            .studios__item--img {
+                &::before {
+                    display: none;
+                }
+            }
+            .studios__item--txt {
+                .studios__content {
+                    background: $dark-grey-cl;
+                    h2,
+                    p,
+                    span {
+                        color: $white-cl;
+                    }
+                }
+                .btn_more {
+                    background: $dark-grey-cl;
+                    a {
+                        color: $white-cl;
+                    }
+                    .black {
+                        display: none;
+                    }
+                    .yellow {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+}
